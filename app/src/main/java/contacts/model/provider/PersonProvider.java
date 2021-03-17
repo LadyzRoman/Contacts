@@ -4,7 +4,6 @@ import contacts.model.Gender;
 
 import java.time.LocalDate;
 
-
 public interface PersonProvider extends RecordProvider {
     String getName();
     String getSurname();

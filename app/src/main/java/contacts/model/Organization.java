@@ -10,9 +10,9 @@ public class Organization extends Record {
     private String address;
 
     public Organization(OrganizationProvider provider) {
+        super(provider);
         this.organizationName = provider.getOrganizationName();
         this.address = provider.getAddress();
-        setPhoneNumber(provider.getNumber());
         this.timeCreated = provider.getTimeCreated();
         this.timeEdited = timeCreated;
     }

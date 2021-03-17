@@ -14,6 +14,7 @@ public class Person extends Record {
     private Gender gender;
 
     public Person(PersonProvider provider) {
+        super(provider);
         this.name = provider.getName();
         this.surname = provider.getSurname();
         try {
@@ -21,13 +22,11 @@ public class Person extends Record {
         } catch (DateTimeParseException e) {
             System.out.println("Bad birth date!");
         }
-
         try {
             this.gender = provider.getGender();
         } catch (IllegalArgumentException e) {
             System.out.println("Bad gender!");
         }
-        setPhoneNumber(provider.getNumber());
         this.timeCreated = provider.getTimeCreated();
         this.timeEdited = timeCreated;
     }

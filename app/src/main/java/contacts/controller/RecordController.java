@@ -1,8 +1,7 @@
 package contacts.controller;
 
 import contacts.View;
-import contacts.model.Organization;
-import contacts.model.Person;
+import contacts.model.ArrayListPhoneBook;
 import contacts.model.PhoneBook;
 import contacts.model.provider.RecordProvider;
 import menu.Menu;

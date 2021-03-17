@@ -14,11 +14,6 @@ public class Record implements Serializable {
     protected LocalDateTime timeCreated;
     protected LocalDateTime timeEdited;
 
-    public Record() {
-        this.timeCreated = LocalDateTime.now();
-        this.timeEdited = timeCreated;
-    }
-
     public Record(RecordProvider provider) {
         setPhoneNumber(provider.getNumber());
         this.timeCreated = provider.getTimeCreated();

@@ -1,46 +1,23 @@
 package contacts.model;
 
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class PhoneBook implements Serializable {
-    private List<Record> records = new ArrayList<>();
+public interface PhoneBook {
 
-    public PhoneBook() {
-    }
+    void add(Record record);
 
-    public void add(Record record) {
-        records.add(record);
-    }
+    void edit(int index, Record record);
 
-    public void remove(int index) {
-        records.remove(index);
-    }
+    void remove(int index);
 
-    public void remove(Record record) {
-        records.remove(record);
-    }
+    void remove(Record record);
 
-    public int getSize() {
-        return records.size();
-    }
+    List<Record> getRecords();
 
-    public List<Record> getRecords() {
-        return new ArrayList<>(records);
-    }
+    Stream<Record> records();
 
-    public Stream<Record> records() {
-        return records.stream();
-    }
+    Record getRecord(int index);
 
-    public void edit(int index, Record record) {
-        records.set(index, record);
-    }
-
-    public Record getRecord(int index) {
-        return records.get(index);
-    }
+    int getSize();
 }

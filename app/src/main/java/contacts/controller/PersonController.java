@@ -1,16 +1,12 @@
 package contacts.controller;
 
 import contacts.View;
-import contacts.model.Organization;
+import contacts.model.ArrayListPhoneBook;
 import contacts.model.Person;
 import contacts.model.PhoneBook;
 import contacts.model.provider.PersonProvider;
-import contacts.model.provider.RecordProvider;
-import menu.Menu;
 import menu.MenuElement;
 import menu.impl.StringKeyMenu;
-
-import java.time.LocalDateTime;
 
 public class PersonController extends RecordController {
     private PersonProvider provider;
@@ -39,22 +35,27 @@ public class PersonController extends RecordController {
     }
 
     public void changeName() {
-
+        //TODO
+        model.edit(index, new Person(provider));
     }
 
     public void changeSurname() {
-
+        //TODO
+        model.edit(index, new Person(provider));
     }
 
     public void changeGender() {
-
+        //TODO
+        model.edit(index, new Person(provider));
     }
 
     public void changePhoneNumber() {
-
+        //TODO
+        model.edit(index, new Person(provider));
     }
 
     public void changeBirthDate() {
-
+        //TODO
+        model.edit(index, new Person(provider));
     }
 }

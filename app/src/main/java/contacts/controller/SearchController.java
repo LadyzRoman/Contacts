@@ -2,7 +2,6 @@ package contacts.controller;
 
 import contacts.View;
 import contacts.model.PhoneBook;
-import menu.Menu;
 import menu.MenuElement;
 
 import java.util.List;

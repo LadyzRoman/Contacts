@@ -1,32 +1,26 @@
 package contacts.controller;
 
 import contacts.View;
-import contacts.model.Organization;
-import contacts.model.Person;
 import contacts.model.PhoneBook;
-import contacts.model.Record;
-import contacts.model.provider.OrganizationProvider;
-import contacts.model.provider.PersonProvider;
 import menu.MenuElement;
 import menu.impl.StringKeyMenu;
 
 public class PhoneBookController extends Controller {
-    private final PersonProvider personProvider;
-    private final OrganizationProvider organizationProvider;
     private StringKeyMenu mainMenu;
-    private StringKeyMenu personTypeMenu;
 
-    private ListController listController;
-    private SearchController searchController;
+    private final ListController listController;
+    private final SearchController searchController;
+    private final NewRecordController newRecordController;
+
 
     public PhoneBookController(View view, PhoneBook model,
-                               ListController listController, SearchController searchController,
-                               PersonProvider personProvider, OrganizationProvider organizationProvider) {
+                               ListController listController,
+                               SearchController searchController,
+                               NewRecordController newRecordController) {
         super(view, model);
         this.listController = listController;
         this.searchController = searchController;
-        this.personProvider = personProvider;
-        this.organizationProvider = organizationProvider;
+        this.newRecordController = newRecordController;
     }
 
     public void init() {
@@ -39,23 +33,10 @@ public class PhoneBookController extends Controller {
                 .addOption(new MenuElement<>("search", s -> search()))
                 .addOption(new MenuElement<>("exit", s -> {}));
         mainMenu = builder.build();
-        builder.reset()
-                .setTitle("Enter the type")
-                .addOption(new MenuElement<>("person",
-                        s -> addRecord(new Person(personProvider))))
-                .addOption(new MenuElement<>("organization",
-                        s -> addRecord(new Organization(organizationProvider))));
-        personTypeMenu = builder.build();
     }
 
     public void add() {
-        view.showMenu(personTypeMenu);
-        executeAction(personTypeMenu);
-        view.showMessage("The record added!");
-    }
-
-    public void addRecord(Record record) {
-        model.add(record);
+        newRecordController.run();
     }
 
     public void count() {
