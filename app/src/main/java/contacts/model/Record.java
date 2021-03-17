@@ -77,7 +77,6 @@ public class Record implements Serializable {
         return "Number: " + (phoneNumber.equals("") ? "[no number]" : phoneNumber);
     }
 
-
     public boolean matches(String query) {
         Pattern pattern = Pattern.compile(query, Pattern.CASE_INSENSITIVE);
         Matcher m = pattern.matcher(phoneNumber);

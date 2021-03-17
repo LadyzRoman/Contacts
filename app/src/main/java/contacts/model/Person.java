@@ -96,8 +96,6 @@ public class Person extends Record {
                 "Time last edit: " + timeEdited;
     }
 
-
-
     @Override
     public boolean matches(String query) {
         Pattern pattern = Pattern.compile(query, Pattern.CASE_INSENSITIVE);

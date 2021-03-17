@@ -4,6 +4,7 @@ package contacts.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class PhoneBook implements Serializable {
     private List<Record> records = new ArrayList<>();
@@ -29,6 +30,10 @@ public class PhoneBook implements Serializable {
 
     public List<Record> getRecords() {
         return new ArrayList<>(records);
+    }
+
+    public Stream<Record> records() {
+        return records.stream();
     }
 
     public void edit(int index, Record record) {
